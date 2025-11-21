@@ -1,757 +1,144 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Coffeeholics • Quests, $BEANS & NFTs on LadyChain</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Coffeeholics is a cozy, game-like quest hub on LadyChain. Complete quests, earn $BEANS and Coffeeholics NFTs. Zero paywall, pure progression."
-  />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
-    rel="stylesheet"
-  />
+  <title>Ladychain Omnisense Network</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="page">
-    <!-- NAVBAR -->
-    <header class="nav">
-      <div class="nav-inner" id="navbar">
-        <div class="nav-left">
-          <div class="logo-mark" aria-hidden="true">☕</div>
-          <div class="logo-text">
-            <div class="logo-title">Coffeeholics</div>
-            <div class="logo-subtitle">$BEANS • Quests • NFTs</div>
-          </div>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="logo-cluster">
+        <div class="logo-orbit">
+          <span class="logo-core"></span>
         </div>
-
-        <nav class="nav-links" aria-label="Main navigation">
-          <a href="#how" class="nav-link">How quests work</a>
-          <a href="#nft" class="nav-link">NFT Collection</a>
-          <a href="#token" class="nav-link">$BEANS</a>
-          <a href="#roadmap" class="nav-link">Roadmap</a>
-        </nav>
-
-        <div class="nav-cta">
-          <button class="btn btn-ghost" data-scroll-target="waitlist">
-            Join waitlist
-          </button>
-          <button class="btn btn-primary" data-scroll-target="hero-quests">
-            View quests
-          </button>
+        <div>
+          <div class="brand-name">Ladychain Omnisense</div>
+          <div class="brand-subtitle">Real-time chain intelligence</div>
         </div>
-
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-          <span></span><span></span><span></span>
-        </button>
+      </div>
+      <div class="header-right">
+        <div class="pill pill-live">
+          <span class="dot dot-live"></span> LIVE
+        </div>
+        <div class="pill pill-status">
+          Latency: <span id="latency-value">24 ms</span>
+        </div>
       </div>
     </header>
 
-    <!-- MAIN -->
-    <main class="main">
-      <!-- HERO -->
-      <section class="section hero" id="top">
-        <div class="section-inner hero-grid">
-          <!-- Hero text -->
-          <div class="hero-left">
-            <div class="eyebrow">
-              <span class="eyebrow-dot"></span>
-              Welcome to the on-chain coffee bar
-            </div>
-            <h1 class="hero-title">
-              Complete quests. <span class="gradient">Earn $BEANS</span>.
-              Unlock Coffeeholics NFTs.
-            </h1>
-            <p class="hero-subtitle">
-              Coffeeholics turns LadyChain into a warm, game-like café.
-              Start with nothing, complete simple on-chain quests and slowly
-              brew your way into $BEANS, staking and a 10,000 piece NFT collection.
-            </p>
-
-            <div class="hero-actions">
-              <button class="btn btn-primary" data-scroll-target="hero-quests">
-                Start your first quest
-                <span class="btn-icon">→</span>
-              </button>
-              <button class="btn btn-outline" data-scroll-target="how">
-                How Coffeeholics works
-              </button>
-            </div>
-
-            <div class="hero-meta">
-              <span>
-                <span class="meta-dot"></span> Built for LadyChain · 1s blocks, ultra-low fees
-              </span>
-              <span>Zero paywall · You earn your way in</span>
-            </div>
-          </div>
-
-          <!-- Hero quests tiers -->
-          <aside
-            class="hero-right"
-            id="hero-quests"
-            aria-label="Available quest tiers"
-          >
-            <div class="panel-header">
-              <div>
-                <h2 class="panel-title">Pick your first roast</h2>
-                <p class="panel-subtitle">
-                  Each roast is a quest tier. Start with Espresso, then Mocha, and finally Latte for the true grinders.
-                </p>
-              </div>
-              <span class="panel-pill">Live demo</span>
-            </div>
-
-            <div class="quest-tier-grid">
-              <!-- ESPRESSO TIER -->
-              <section class="quest-tier-card" data-tier="espresso">
-                <header class="tier-header">
-                  <div>
-                    <p class="tier-label">Tier I</p>
-                    <h3 class="tier-title">Espresso Quests</h3>
-                    <p class="tier-subtitle">
-                      Short, sweet and perfect for your very first on-chain sip.
-                    </p>
-                  </div>
-                  <span class="tier-chip tier-chip-easy">Easy · 10 quests</span>
-                </header>
-                <ul class="tier-quest-list">
-                  <li class="tier-quest-row" data-quest-id="espresso-1" data-beans="10">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Connect & Sip</span>
-                      <span class="tier-quest-meta">Connect wallet & say hi · 10 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="espresso-2" data-beans="12">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">First Brew</span>
-                      <span class="tier-quest-meta">Your first on-chain action · 12 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="espresso-3" data-beans="8">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Daily Check-in</span>
-                      <span class="tier-quest-meta">Log in once today · 8 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="espresso-4" data-beans="10">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Share a Brew</span>
-                      <span class="tier-quest-meta">Share Coffeeholics link · 10 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="espresso-5" data-beans="9">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Explore the Menu</span>
-                      <span class="tier-quest-meta">View all quest tiers · 9 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="espresso-6" data-beans="11">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Profile Setup</span>
-                      <span class="tier-quest-meta">Set your Coffeeholic name · 11 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="espresso-7" data-beans="10">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Pick a Favourite Roast</span>
-                      <span class="tier-quest-meta">Choose your style · 10 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="espresso-8" data-beans="8">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Warm-up Streak</span>
-                      <span class="tier-quest-meta">Play 2 days in a row · 8 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="espresso-9" data-beans="10">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Read the Story</span>
-                      <span class="tier-quest-meta">Open Coffeeholics lore · 10 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="espresso-10" data-beans="12">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Espresso Sampler</span>
-                      <span class="tier-quest-meta">Complete 3 Espresso quests · 12 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                </ul>
-              </section>
-
-              <!-- MOCHA TIER -->
-              <section class="quest-tier-card" data-tier="mocha">
-                <header class="tier-header">
-                  <div>
-                    <p class="tier-label">Tier II</p>
-                    <h3 class="tier-title">Mocha Quests</h3>
-                    <p class="tier-subtitle">
-                      For when you’re ready to mix chocolate and complexity.
-                    </p>
-                  </div>
-                  <span class="tier-chip tier-chip-med">Medium · 10 quests</span>
-                </header>
-                <ul class="tier-quest-list">
-                  <li class="tier-quest-row" data-quest-id="mocha-1" data-beans="20">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Double Shot</span>
-                      <span class="tier-quest-meta">Complete 2 quests in one session · 20 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="mocha-2" data-beans="24">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Beans on Chain</span>
-                      <span class="tier-quest-meta">Trigger 3 on-chain actions · 24 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="mocha-3" data-beans="22">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Social Brew</span>
-                      <span class="tier-quest-meta">Invite a friend to join · 22 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="mocha-4" data-beans="26">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Beans Savings</span>
-                      <span class="tier-quest-meta">Reach 100 $BEANS balance · 26 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="mocha-5" data-beans="22">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Combo Order</span>
-                      <span class="tier-quest-meta">Finish 3 different Espresso quests · 22 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="mocha-6" data-beans="24">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Flavor Explorer</span>
-                      <span class="tier-quest-meta">Try all three tiers visually · 24 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="mocha-7" data-beans="23">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Morning Ritual</span>
-                      <span class="tier-quest-meta">Log in 3 mornings in a row · 23 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="mocha-8" data-beans="25">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Beans Beginner</span>
-                      <span class="tier-quest-meta">Complete 5 total quests · 25 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="mocha-9" data-beans="24">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Chat with the Barista</span>
-                      <span class="tier-quest-meta">Open the guide / FAQ once · 24 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="mocha-10" data-beans="28">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Mocha Master</span>
-                      <span class="tier-quest-meta">Complete 5 Mocha quests · 28 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                </ul>
-              </section>
-
-              <!-- LATTE TIER -->
-              <section class="quest-tier-card" data-tier="latte">
-                <header class="tier-header">
-                  <div>
-                    <p class="tier-label">Tier III</p>
-                    <h3 class="tier-title">Latte Quests</h3>
-                    <p class="tier-subtitle">
-                      Creamy, foamy and made for dedicated Coffeeholics grinders.
-                    </p>
-                  </div>
-                  <span class="tier-chip tier-chip-hard">Hard · 10 quests</span>
-                </header>
-                <ul class="tier-quest-list">
-                  <li class="tier-quest-row" data-quest-id="latte-1" data-beans="35">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Latte Art</span>
-                      <span class="tier-quest-meta">Complete 3 quests in one day · 35 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="latte-2" data-beans="40">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Beans Stacker</span>
-                      <span class="tier-quest-meta">Reach 250 $BEANS total · 40 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="latte-3" data-beans="42">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Weekend Rush</span>
-                      <span class="tier-quest-meta">Play both Saturday and Sunday · 42 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="latte-4" data-beans="45">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Cross-Roast Combo</span>
-                      <span class="tier-quest-meta">Finish 2 Espresso & 2 Mocha quests · 45 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="latte-5" data-beans="38">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Season Sampler</span>
-                      <span class="tier-quest-meta">Complete a seasonal quest · 38 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="latte-6" data-beans="42">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Regular’s Badge</span>
-                      <span class="tier-quest-meta">Log in 7 days in a row · 42 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="latte-7" data-beans="40">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">High Caffeine Run</span>
-                      <span class="tier-quest-meta">Complete 10 total quests · 40 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="latte-8" data-beans="44">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Community Regular</span>
-                      <span class="tier-quest-meta">Interact with community once · 44 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="latte-9" data-beans="46">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Latte Lounge</span>
-                      <span class="tier-quest-meta">Spend 10 minutes browsing quests · 46 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                  <li class="tier-quest-row" data-quest-id="latte-10" data-beans="50">
-                    <div class="tier-quest-main">
-                      <span class="tier-quest-name">Latte Legend</span>
-                      <span class="tier-quest-meta">Complete 5 Latte quests · 50 $BEANS</span>
-                    </div>
-                    <div class="tier-quest-actions">
-                      <button class="tier-quest-btn tier-quest-btn-start" data-action="start">Start</button>
-                      <button class="tier-quest-btn tier-quest-btn-claim" data-action="claim" disabled>Claim</button>
-                    </div>
-                  </li>
-                </ul>
-              </section>
-            </div>
-
-            <div class="panel-footer">
-              <div class="panel-stat">
-                <span class="panel-stat-label">Sample run</span>
-                <span class="panel-stat-value" id="sampleRun">
-                  0 quests claimed · 0 $BEANS earned
-                </span>
-              </div>
-              <button class="link-button" data-scroll-target="how">
-                See full progression philosophy →
-              </button>
-            </div>
-          </aside>
+    <main class="app-main">
+      <!-- Left sidebar: controls / stats -->
+      <aside class="panel panel-left">
+        <h2 class="panel-title">Layers</h2>
+        <div class="toggle-group">
+          <label class="toggle">
+            <input type="checkbox" checked data-layer="wallets">
+            <span class="toggle-ui"></span>
+            <span class="toggle-label">Wallet graph</span>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" checked data-layer="tx">
+            <span class="toggle-ui"></span>
+            <span class="toggle-label">Transactions</span>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" checked data-layer="dex">
+            <span class="toggle-ui"></span>
+            <span class="toggle-label">DEX activity</span>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" checked data-layer="nft">
+            <span class="toggle-ui"></span>
+            <span class="toggle-label">NFT mints</span>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" checked data-layer="whales">
+            <span class="toggle-ui"></span>
+            <span class="toggle-label">Whales / Smart money</span>
+          </label>
         </div>
-      </section>
 
-      <!-- HOW IT WORKS -->
-      <section class="section" id="how">
-        <div class="section-inner">
-          <p class="section-kicker">How Coffeeholics works</p>
-          <h2 class="section-title">A cozy, on-chain progression loop.</h2>
-          <p class="section-description">
-            Think of it as a digital café built on LadyChain. You walk in with
-            nothing, order a simple “Espresso” quest and slowly collect
-            $BEANS, XP and NFTs as you keep coming back.
-          </p>
-
-          <div class="steps-grid">
-            <article class="step-card">
-              <p class="step-label">Step 1</p>
-              <h3 class="step-title">Walk in with nothing</h3>
-              <p class="step-text">
-                No NFT, no tokens required. Just connect and complete your first
-                low-stakes Espresso quest to understand how it feels.
-              </p>
-            </article>
-
-            <article class="step-card">
-              <p class="step-label">Step 2</p>
-              <h3 class="step-title">Grind up to Mocha</h3>
-              <p class="step-text">
-                As you complete more quests, Mocha quests unlock and $BEANS balances grow,
-                opening up more interesting paths.
-              </p>
-            </article>
-
-            <article class="step-card">
-              <p class="step-label">Step 3</p>
-              <h3 class="step-title">Earn your Coffeeholics NFT</h3>
-              <p class="step-text">
-                Reach early milestones to earn Coffee Tickets. Use them to mint
-                one of 10,000 Coffeeholics NFTs with baked-in quest perks.
-              </p>
-            </article>
-
-            <article class="step-card">
-              <p class="step-label">Step 4</p>
-              <h3 class="step-title">Latte endgame & seasons</h3>
-              <p class="step-text">
-                Latte quests, staking and seasonal events form the long-term
-                progression layer – more like a game, less like a spreadsheet.
-              </p>
-            </article>
+        <h2 class="panel-title margin-top-lg">Chain health</h2>
+        <div class="metric-grid">
+          <div class="metric-card">
+            <div class="metric-label">TPS</div>
+            <div class="metric-value" id="metric-tps">152.4</div>
+            <div class="metric-sub">tx/sec</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Blocks</div>
+            <div class="metric-value" id="metric-blocks">3,421,901</div>
+            <div class="metric-sub">latest</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Avg Fee</div>
+            <div class="metric-value" id="metric-fee">0.0003</div>
+            <div class="metric-sub">LADY</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Active wallets</div>
+            <div class="metric-value" id="metric-wallets">18,294</div>
+            <div class="metric-sub">24h</div>
           </div>
         </div>
-      </section>
 
-      <!-- NFT SECTION -->
-      <section class="section" id="nft">
-        <div class="section-inner">
-          <p class="section-kicker">NFT Collection</p>
-          <h2 class="section-title">10,000 Coffeeholics. All earned, never forced.</h2>
-          <p class="section-description">
-            The Coffeeholics NFT collection is fully integrated into the quest
-            system. Roles, probability and utility are carefully tuned to keep
-            things fair, fun and replayable.
-          </p>
+        <h2 class="panel-title margin-top-lg">Time warp</h2>
+        <div class="slider-row">
+          <input type="range" min="0" max="100" value="100" id="time-slider" />
+          <div class="slider-label">
+            <span id="time-label">Now</span>
+          </div>
+        </div>
+      </aside>
 
-          <div class="dual-grid">
-            <div class="panel">
-              <div class="panel-header">
-                <div>
-                  <h3 class="panel-title">Roles & probabilities</h3>
-                  <p class="panel-subtitle">
-                    Every Coffee Ticket mint rolls into one of these four archetypes.
-                  </p>
-                </div>
-                <span class="panel-pill">10,000 supply</span>
-              </div>
-
-              <table class="rarity-table" aria-label="NFT roles and probabilities">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Chance</th>
-                    <th>Role</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="rarity-chip">☕ Coffeeholic</span></td>
-                    <td>60%</td>
-                    <td>Core regular · XP & small daily boosts</td>
-                  </tr>
-                  <tr>
-                    <td><span class="rarity-chip">🕵 BeanThief</span></td>
-                    <td>25%</td>
-                    <td>High variance · BEANS jackpot quests</td>
-                  </tr>
-                  <tr>
-                    <td><span class="rarity-chip">👨‍🍳 Barista</span></td>
-                    <td>10%</td>
-                    <td>Crafter · buff items & support perks</td>
-                  </tr>
-                  <tr>
-                    <td><span class="rarity-chip">🏬 Café</span></td>
-                    <td>5%</td>
-                    <td>Owner · passive yield & premium missions</td>
-                  </tr>
-                </tbody>
-              </table>
+      <!-- Center: 3D visualization -->
+      <section class="panel panel-center">
+        <div class="panel-header">
+          <h2 class="panel-title">Neural chain map</h2>
+          <div class="panel-header-right">
+            <div class="pill pill-mode">Autopilot</div>
+          </div>
+        </div>
+        <div id="viz-container">
+          <!-- Three.js canvas gets injected here -->
+          <div class="viz-overlay">
+            <div class="viz-overlay-item">
+              <span class="viz-label">Nodes</span>
+              <span class="viz-value" id="viz-nodes">0</span>
             </div>
-
-            <div class="panel">
-              <div class="panel-header">
-                <div>
-                  <h3 class="panel-title">Why they’re earn-only</h3>
-                  <p class="panel-subtitle">
-                    You don’t mint into Coffeeholics – you play into it.
-                  </p>
-                </div>
-                <span class="panel-pill">Player-friendly</span>
-              </div>
-              <ul class="token-list">
-                <li>
-                  <strong>Zero paywall:</strong> everyone starts in the same empty-cup state.
-                </li>
-                <li>
-                  <strong>Skill & commitment:</strong> higher roles are more likely for
-                  players who keep grinding quests and streaks.
-                </li>
-                <li>
-                  <strong>Organic value:</strong> perks and utility are earned, not bought
-                  on day one, which makes the world feel fair.
-                </li>
-                <li>
-                  <strong>Replayable seasons:</strong> future seasons can add cosmetic,
-                  seasonal Coffeeholics variants without power creep.
-                </li>
-              </ul>
+            <div class="viz-overlay-item">
+              <span class="viz-label">Links</span>
+              <span class="viz-value" id="viz-links">0</span>
+            </div>
+            <div class="viz-overlay-item">
+              <span class="viz-label">Heat</span>
+              <span class="viz-badge" id="viz-heat">Rising</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- TOKEN SECTION -->
-      <section class="section" id="token">
-        <div class="section-inner">
-          <p class="section-kicker">$BEANS token</p>
-          <h2 class="section-title">$BEANS fuels the CoffeeVerse.</h2>
-          <p class="section-description">
-            $BEANS is the soft currency of Coffeeholics. You earn it through
-            quests, use it for staking, boosts and later on for governance.
-          </p>
-
-          <div class="dual-grid">
-            <div class="panel">
-              <div class="panel-header">
-                <div>
-                  <h3 class="panel-title">Core utilities</h3>
-                  <p class="panel-subtitle">
-                    Designed as a utility-first token tightly bound to quests.
-                  </p>
-                </div>
-                <span class="panel-pill">Utility-first</span>
-              </div>
-              <ul class="token-list">
-                <li><strong>Quest rewards:</strong> baseline income for active players.</li>
-                <li><strong>Staking:</strong> lock $BEANS for passive yield and multipliers.</li>
-                <li><strong>Boosts:</strong> buy temporary XP or $BEANS multipliers.</li>
-                <li><strong>Crafting:</strong> pay for Barista-crafted items and buffs.</li>
-              </ul>
-            </div>
-
-            <div class="panel">
-              <div class="panel-header">
-                <div>
-                  <h3 class="panel-title">Design principles</h3>
-                  <p class="panel-subtitle">
-                    Less ponzinomics, more cozy long-term progression.
-                  </p>
-                </div>
-                <span class="panel-pill">Economy layer</span>
-              </div>
-              <ul class="token-list">
-                <li>Rewards scale with quest difficulty, not speculation hype.</li>
-                <li>Inflation tied to seasons & active player count.</li>
-                <li>Most $BEANS enter the system through real player actions.</li>
-                <li>Everything tuned around LadyChain’s low fees & fast blocks.</li>
-              </ul>
-            </div>
-          </div>
+      <!-- Right sidebar: activity feed -->
+      <aside class="panel panel-right">
+        <div class="panel-header">
+          <h2 class="panel-title">Signal feed</h2>
+          <button class="btn-ghost" id="clear-feed-btn">Clear</button>
         </div>
-      </section>
-
-      <!-- ROADMAP -->
-      <section class="section" id="roadmap">
-        <div class="section-inner">
-          <p class="section-kicker">Roadmap</p>
-          <h2 class="section-title">From test brew to full CoffeeVerse.</h2>
-          <p class="section-description">
-            We start tight and focused: a quest engine that feels excellent.
-            Then we expand into staking, crafting, seasonal events and
-            community-led balancing.
-          </p>
-
-          <div class="roadmap-grid">
-            <article class="roadmap-card">
-              <p class="roadmap-phase">Phase 1</p>
-              <h3 class="roadmap-title">Testnet espresso shot</h3>
-              <ul class="roadmap-list">
-                <li>Core quest engine on LadyChain testnet</li>
-                <li>XP, levels & basic $BEANS rewards</li>
-                <li>Mock Coffee Tickets and NFT roles</li>
-                <li>Invite-only test group</li>
-              </ul>
-            </article>
-
-            <article class="roadmap-card">
-              <p class="roadmap-phase">Phase 2</p>
-              <h3 class="roadmap-title">Mainnet pour-over</h3>
-              <ul class="roadmap-list">
-                <li>10,000 Coffeeholics NFTs earnable via quests</li>
-                <li>$BEANS staking & early multipliers</li>
-                <li>Daily & weekly quest rotations</li>
-                <li>Season 1: “First Brew” live</li>
-              </ul>
-            </article>
-
-            <article class="roadmap-card">
-              <p class="roadmap-phase">Phase 3</p>
-              <h3 class="roadmap-title">Full CoffeeVerse</h3>
-              <ul class="roadmap-list">
-                <li>Crafting, buffs & advanced Barista quests</li>
-                <li>Café-owner dashboards & passive yield sinks</li>
-                <li>Creator quests for other LadyChain projects</li>
-                <li>Governance & community balancing tools</li>
-              </ul>
-            </article>
-          </div>
+        <div id="feed-container" class="feed-container">
+          <!-- JS adds feed items -->
         </div>
-      </section>
-
-      <!-- WAITLIST / CTA -->
-      <section class="section" id="waitlist">
-        <div class="section-inner waitlist">
-          <p class="section-kicker">Early access</p>
-          <h2 class="cta-heading">Want to be in the first Coffeeholics wave?</h2>
-          <p class="cta-text">
-            Drop your email and we’ll invite you once the first live quests hit LadyChain.
-            Early testers get an extra chance at rare Coffeeholics and boosted $BEANS rewards.
-          </p>
-
-          <form class="cta-form" id="waitlistForm">
-            <input
-              type="email"
-              name="email"
-              id="emailInput"
-              class="input"
-              placeholder="you@example.com"
-              required
-            />
-            <button type="submit" class="btn btn-primary">
-              Join the waitlist
-            </button>
-          </form>
-          <p class="note" id="waitlistNote">
-            We’ll only email you about launches and major quest updates. No spam, just beans.
-          </p>
-        </div>
-      </section>
+      </aside>
     </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer-inner">
-        <p>© <span id="year"></span> Coffeeholics • Built for LadyChain • Ticker: $BEANS</p>
-        <div class="footer-links">
-          <a href="#top">Back to top</a>
-          <a href="#how">How it works</a>
-          <a href="#waitlist">Waitlist</a>
-        </div>
-      </div>
-    </footer>
   </div>
 
+  <!-- Three.js from CDN -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <!-- Main app -->
   <script src="app.js"></script>
 </body>
 </html>
