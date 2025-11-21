@@ -2,143 +2,314 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Ladychain Omnisense Network</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoffeeHolics Café | BEANS on LadyChain</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="app-shell">
-    <header class="app-header">
-      <div class="logo-cluster">
-        <div class="logo-orbit">
-          <span class="logo-core"></span>
+  <header class="ch-header">
+    <div class="ch-container ch-header-inner">
+      <div class="ch-logo">
+        <span class="ch-logo-icon">☕</span>
+        <span class="ch-logo-text">CoffeeHolics</span>
+      </div>
+      <nav class="ch-nav">
+        <a href="#hero" class="ch-nav-link ch-nav-link--active">Home</a>
+        <a href="#bar" class="ch-nav-link">Bar</a>
+        <a href="#brew" class="ch-nav-link">Brew</a>
+        <a href="#my-cafe" class="ch-nav-link">My Café</a>
+      </nav>
+      <button id="connectWalletBtn" class="ch-btn ch-btn-outline ch-wallet-btn">
+        Connect Wallet
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / HOME -->
+    <section id="hero" class="ch-section ch-hero">
+      <div class="ch-container ch-hero-inner">
+        <div class="ch-hero-left">
+          <p className="ch-kicker">On-chain café on LadyChain</p>
+          <h1 class="ch-hero-title">
+            Brew <span class="ch-hero-highlight">BEANS</span>,<br />
+            live the café vibe.
+          </h1>
+          <p class="ch-hero-subtitle">
+            CoffeeHolics is a cozy Web3 café on LadyChain. Buy <strong>BEANS</strong>,
+            brew them for rewards, and flex your CoffeeHolics NFT membership — all from
+            one warm, simple interface.
+          </p>
+          <div class="ch-hero-actions">
+            <a href="#bar" class="ch-btn ch-btn-primary">Go to the Bar (Buy BEANS)</a>
+            <a href="#brew" class="ch-btn ch-btn-ghost">Start Brewing</a>
+          </div>
+          <div class="ch-hero-stats">
+            <div class="ch-stat-card">
+              <span class="ch-stat-label">Status</span>
+              <span id="heroStatus" class="ch-stat-value">Wallet not connected</span>
+            </div>
+            <div class="ch-stat-card">
+              <span class="ch-stat-label">Café Vibe</span>
+              <span class="ch-stat-value">Warm & on-chain</span>
+            </div>
+          </div>
         </div>
-        <div>
-          <div class="brand-name">Ladychain Omnisense</div>
-          <div class="brand-subtitle">Real-time chain intelligence</div>
+        <div class="ch-hero-right">
+          <div class="ch-hero-cup">
+            <div class="ch-hero-steam ch-hero-steam-1"></div>
+            <div class="ch-hero-steam ch-hero-steam-2"></div>
+            <div class="ch-hero-steam ch-hero-steam-3"></div>
+            <div class="ch-hero-cup-body">
+              <span class="ch-hero-cup-label">$BEANS</span>
+            </div>
+            <div class="ch-hero-cup-plate"></div>
+          </div>
         </div>
       </div>
-      <div class="header-right">
-        <div class="pill pill-live">
-          <span class="dot dot-live"></span> LIVE
+    </section>
+
+    <!-- BAR / DEX SWAP -->
+    <section id="bar" class="ch-section">
+      <div class="ch-container">
+        <div class="ch-section-header">
+          <h2 class="ch-section-title">The Bar</h2>
+          <p class="ch-section-subtitle">
+            Swap <strong>LADY</strong> for <strong>BEANS</strong> through the integrated Coffee DEX.
+            No charts, no noise — just pure café flow.
+          </p>
         </div>
-        <div class="pill pill-status">
-          Latency: <span id="latency-value">24 ms</span>
+
+        <div class="ch-grid ch-grid-2">
+          <!-- Swap Card -->
+          <div class="ch-card ch-card-elevated">
+            <h3 class="ch-card-title">Buy BEANS</h3>
+            <p class="ch-card-text">
+              Enter how much <strong>LADY</strong> you want to spend. We’ll show you an
+              estimated amount of <strong>BEANS</strong> based on the current DEX price.
+            </p>
+
+            <div class="ch-form-group">
+              <label class="ch-label" for="ladyInput">You pay (LADY)</label>
+              <div class="ch-input-wrapper">
+                <input
+                  id="ladyInput"
+                  type="number"
+                  min="0"
+                  step="0.0001"
+                  placeholder="0.0"
+                  class="ch-input"
+                />
+                <span class="ch-input-tag">LADY</span>
+              </div>
+            </div>
+
+            <div class="ch-form-group">
+              <label class="ch-label">You receive (approx. BEANS)</label>
+              <div class="ch-input-wrapper ch-input-display">
+                <div id="beansOutput" class="ch-input-display-value">0.0</div>
+                <span class="ch-input-tag">$BEANS</span>
+              </div>
+              <p id="priceInfo" class="ch-help-text">
+                Live estimate based on the Coffee DEX (demo calculation).
+              </p>
+            </div>
+
+            <button id="buyBeansBtn" class="ch-btn ch-btn-primary ch-btn-full">
+              Buy BEANS
+            </button>
+
+            <p class="ch-note">
+              This UI is intentionally simple. Behind the scenes it calls a DEX swap
+              (LADY → BEANS) on LadyChain.
+            </p>
+          </div>
+
+          <!-- Info Card -->
+          <div class="ch-card ch-card-soft">
+            <h3 class="ch-card-title">How the Bar works</h3>
+            <ul class="ch-list">
+              <li>Connect your wallet on LadyChain.</li>
+              <li>Enter how much LADY you want to spend.</li>
+              <li>We read the current LADY/BEANS price from the DEX.</li>
+              <li>You confirm one transaction and receive BEANS in your wallet.</li>
+            </ul>
+            <p class="ch-card-text">
+              Advanced users can always open the full DEX to add liquidity, trade other
+              pairs or stare at charts — but CoffeeHolics keeps the main flow cozy.
+            </p>
+            <button class="ch-btn ch-btn-outline ch-btn-sm" id="openDexBtn">
+              Open full DEX (placeholder)
+            </button>
+          </div>
         </div>
       </div>
-    </header>
+    </section>
 
-    <main class="app-main">
-      <!-- Left sidebar: controls / stats -->
-      <aside class="panel panel-left">
-        <h2 class="panel-title">Layers</h2>
-        <div class="toggle-group">
-          <label class="toggle">
-            <input type="checkbox" checked data-layer="wallets">
-            <span class="toggle-ui"></span>
-            <span class="toggle-label">Wallet graph</span>
-          </label>
-          <label class="toggle">
-            <input type="checkbox" checked data-layer="tx">
-            <span class="toggle-ui"></span>
-            <span class="toggle-label">Transactions</span>
-          </label>
-          <label class="toggle">
-            <input type="checkbox" checked data-layer="dex">
-            <span class="toggle-ui"></span>
-            <span class="toggle-label">DEX activity</span>
-          </label>
-          <label class="toggle">
-            <input type="checkbox" checked data-layer="nft">
-            <span class="toggle-ui"></span>
-            <span class="toggle-label">NFT mints</span>
-          </label>
-          <label class="toggle">
-            <input type="checkbox" checked data-layer="whales">
-            <span class="toggle-ui"></span>
-            <span class="toggle-label">Whales / Smart money</span>
-          </label>
+    <!-- BREW -->
+    <section id="brew" class="ch-section ch-section-alt">
+      <div class="ch-container">
+        <div class="ch-section-header">
+          <h2 class="ch-section-title">Brew</h2>
+          <p class="ch-section-subtitle">
+            Turn your BEANS into a slow, steady stream of more BEANS. One simple Brew.
+            No APR sliders. No lock choices. Just vibes.
+          </p>
         </div>
 
-        <h2 class="panel-title margin-top-lg">Chain health</h2>
-        <div class="metric-grid">
-          <div class="metric-card">
-            <div class="metric-label">TPS</div>
-            <div class="metric-value" id="metric-tps">152.4</div>
-            <div class="metric-sub">tx/sec</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-label">Blocks</div>
-            <div class="metric-value" id="metric-blocks">3,421,901</div>
-            <div class="metric-sub">latest</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-label">Avg Fee</div>
-            <div class="metric-value" id="metric-fee">0.0003</div>
-            <div class="metric-sub">LADY</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-label">Active wallets</div>
-            <div class="metric-value" id="metric-wallets">18,294</div>
-            <div class="metric-sub">24h</div>
-          </div>
-        </div>
+        <div class="ch-grid ch-grid-2">
+          <!-- Brew Card -->
+          <div class="ch-card ch-card-elevated">
+            <h3 class="ch-card-title">Your Brew</h3>
 
-        <h2 class="panel-title margin-top-lg">Time warp</h2>
-        <div class="slider-row">
-          <input type="range" min="0" max="100" value="100" id="time-slider" />
-          <div class="slider-label">
-            <span id="time-label">Now</span>
-          </div>
-        </div>
-      </aside>
-
-      <!-- Center: 3D visualization -->
-      <section class="panel panel-center">
-        <div class="panel-header">
-          <h2 class="panel-title">Neural chain map</h2>
-          <div class="panel-header-right">
-            <div class="pill pill-mode">Autopilot</div>
-          </div>
-        </div>
-        <div id="viz-container">
-          <!-- Three.js canvas gets injected here -->
-          <div class="viz-overlay">
-            <div class="viz-overlay-item">
-              <span class="viz-label">Nodes</span>
-              <span class="viz-value" id="viz-nodes">0</span>
+            <div class="ch-brew-status">
+              <div class="ch-brew-cup">
+                <div class="ch-brew-steam ch-brew-steam-1"></div>
+                <div class="ch-brew-steam ch-brew-steam-2"></div>
+                <div class="ch-brew-steam ch-brew-steam-3"></div>
+                <div class="ch-brew-liquid" id="brewLiquid"></div>
+                <div class="ch-brew-cup-outline"></div>
+              </div>
+              <div class="ch-brew-info">
+                <p class="ch-brew-line">
+                  Status:
+                  <span id="brewStatus" class="ch-chip ch-chip-soft">Idle</span>
+                </p>
+                <p class="ch-brew-line">
+                  Brew rate:
+                  <span id="brewRate" class="ch-highlight-text">0 BEANS / hour</span>
+                </p>
+                <p class="ch-brew-line">
+                  Accumulated:
+                  <span id="brewAccumulated" class="ch-highlight-text">0.0 BEANS</span>
+                </p>
+              </div>
             </div>
-            <div class="viz-overlay-item">
-              <span class="viz-label">Links</span>
-              <span class="viz-value" id="viz-links">0</span>
+
+            <div class="ch-brew-actions">
+              <button id="startBrewBtn" class="ch-btn ch-btn-primary">
+                Start Brew
+              </button>
+              <button id="collectBrewBtn" class="ch-btn ch-btn-ghost">
+                Collect BEANS
+              </button>
             </div>
-            <div class="viz-overlay-item">
-              <span class="viz-label">Heat</span>
-              <span class="viz-badge" id="viz-heat">Rising</span>
+
+            <p class="ch-note">
+              This is a front-end simulation. In production, this would connect to your
+              Brew / staking smart contract and read real-time rewards.
+            </p>
+          </div>
+
+          <!-- Brew Explanation -->
+          <div class="ch-card ch-card-soft">
+            <h3 class="ch-card-title">Brew philosophy</h3>
+            <p class="ch-card-text">
+              Staking is usually confusing — APR, lock times, complex UIs. CoffeeHolics
+              wraps all of that into a single, friendly concept: <strong>Brew</strong>.
+            </p>
+            <ul class="ch-list">
+              <li>One Brew. No tiers in the UI.</li>
+              <li>You start a Brew and watch BEANS accumulate.</li>
+              <li>You collect whenever you like.</li>
+              <li>Under the hood, the smart contract does the heavy lifting.</li>
+            </ul>
+            <p class="ch-card-text">
+              You can still implement tiers, boosts and NFT perks in the contract —
+              My Café will simply show the results as “faster brewing”.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MY CAFE -->
+    <section id="my-cafe" class="ch-section">
+      <div class="ch-container">
+        <div class="ch-section-header">
+          <h2 class="ch-section-title">My Café</h2>
+          <p class="ch-section-subtitle">
+            Your personal corner in the CoffeeHolics universe. See your balances,
+            Brew status and CoffeeHolics NFT.
+          </p>
+        </div>
+
+        <div class="ch-grid ch-grid-3">
+          <!-- Profile / Summary -->
+          <div class="ch-card ch-card-soft">
+            <h3 class="ch-card-title">Profile</h3>
+            <p class="ch-profile-line">
+              Wallet:
+              <span id="profileWallet" class="ch-mono">Not connected</span>
+            </p>
+            <p class="ch-profile-line">
+              Coffee Level:
+              <span id="coffeeLevel">1</span>
+            </p>
+            <p class="ch-card-text">
+              Coffee Level is a simple way to reflect total activity: BEANS brewed,
+              BEANS spent and time in the café.
+            </p>
+          </div>
+
+          <!-- Balances -->
+          <div class="ch-card ch-card-elevated">
+            <h3 class="ch-card-title">Balances</h3>
+            <p class="ch-profile-line">
+              LADY:
+              <span id="ladyBalance" class="ch-mono">0.0</span>
+            </p>
+            <p class="ch-profile-line">
+              BEANS:
+              <span id="beansBalance" class="ch-mono">0.0</span>
+            </p>
+            <p class="ch-profile-line">
+              Brewed total:
+              <span id="totalBrewed" class="ch-mono">0.0</span>
+            </p>
+            <p class="ch-card-text">
+              In a real integration, these values would be read directly from the
+              blockchain and your smart contracts.
+            </p>
+          </div>
+
+          <!-- Items -->
+          <div class="ch-card ch-card-soft">
+            <h3 class="ch-card-title">Your Items</h3>
+
+            <div class="ch-item-card">
+              <div class="ch-item-icon">🎫</div>
+              <div class="ch-item-body">
+                <div class="ch-item-title">CoffeeHolics NFT</div>
+                <div class="ch-item-subtitle">
+                  Core membership. Different NFTs can unlock different Brew boosts.
+                </div>
+              </div>
+            </div>
+
+            <div class="ch-item-card ch-item-card-locked">
+              <div class="ch-item-icon">🔒</div>
+              <div class="ch-item-body">
+                <div class="ch-item-title">Coming Soon</div>
+                <div class="ch-item-subtitle">
+                  Future café items and perks will appear here as the ecosystem grows.
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <!-- Right sidebar: activity feed -->
-      <aside class="panel panel-right">
-        <div class="panel-header">
-          <h2 class="panel-title">Signal feed</h2>
-          <button class="btn-ghost" id="clear-feed-btn">Clear</button>
-        </div>
-        <div id="feed-container" class="feed-container">
-          <!-- JS adds feed items -->
-        </div>
-      </aside>
-    </main>
-  </div>
+      </div>
+    </section>
+  </main>
 
-  <!-- Three.js from CDN -->
-  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-  <!-- Main app -->
-  <script src="app.js"></script>
+  <footer class="ch-footer">
+    <div class="ch-container ch-footer-inner">
+      <span>© CoffeeHolics Café • Brewed on LadyChain</span>
+      <span class="ch-footer-meta">This is a concept UI, not financial advice.</span>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
